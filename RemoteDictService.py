@@ -116,6 +116,14 @@ def buy_item(r: redis.Redis, itemid: int) -> None:
                 error_count += 1
                 logging.warning("WatchError #%d: %s; retrying",
 
-                                error_count, itemid)
+                                error_count, itemid
+                                )
 
-    return None
+        return None
+
+
+buy_item(r, "hat:56854717")
+buy_item(r, "hat:56854717")
+buy_item(r, "hat:56854717")
+print(r.hmget("hat:56854717", "quantity", "npurchased"))
+
